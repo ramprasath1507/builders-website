@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Login Form</title>
+    {% load static %}
+	<link href="{% static 'style.css' %}" rel="stylesheet" type='text/css'>
+</head>
+<body>
+	<div class="form-box">
+		<div class="header-text">
+			Login Form
+		</div>
+        <form action="" method="post">
+            {% csrf_token %}
+            Username :
+            <input type="text" name="uname" id="" placeholder='Username'>
+            Email-id :
+            <input type="email" name="email" id="" placeholder='Email-id'>
+            Enter password :
+            <input type="password" name="pwd" id="" placeholder='Password'>
+            <input type="submit" value="login">
+        </form>
+        <p><center> Don't have account?<a href="{% url 'register' %}">Signup Now</a></center></p>
+	</div>
+</body>
+</html>

@@ -1,0 +1,185 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contractors</title>
+    
+        <!-- For favicon png -->
+		<link rel="shortcut icon" type="image/icon" href="{% static 'assets/logo/favicon.png' %}"/>
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+       
+        <!--font-awesome.min.css-->
+        <link rel="stylesheet" href="{% static 'assets/css/font-awesome.min.css' %}">
+
+        <!--linear icon css-->
+		<link rel="stylesheet" href="{% static 'assets/css/linearicons.css' %}">
+
+		<!--animate.css-->
+        <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
+
+		<!--flaticon.css-->
+        <link rel="stylesheet" href="{% static 'assets/css/flaticon.css' %}">
+
+		<!--slick.css-->
+        <link rel="stylesheet" href="{% static 'assets/css/slick.css' %}">
+		<link rel="stylesheet" href="{% static 'assets/css/slick-theme.css' %}">
+		
+        <!--bootstrap.min.css-->
+        <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+		
+		<!-- bootsnav -->
+		<link rel="stylesheet" href="{% static 'assets/css/bootsnav.css' %}" >	
+        
+        <!--style.css-->
+        <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" >
+        
+        <!--responsive.css-->
+        <link rel="stylesheet" href="{% static 'assets/css/responsive.css' %}">
+</head>
+<body>
+    <header id="header-top" class="header-top">
+        <ul>
+            <li>
+                <div class="header-top-left">
+                    <ul>
+                        <li class="select-opt">
+                            <select name="language" id="language">
+                                <option value="default">ENGLISH</option>
+                                <option value="TAMIL">TAMIL</option>
+                                <option value="HINDI">HINDI</option>
+                            </select>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="head-responsive-right pull-right">
+                <div class="header-top-right">
+                    <ul>
+                        <li class="header-top-contact">
+                            +1 222 777 6565
+                        </li>
+                        <li class="header-top-contact">
+                            <p>"welocme {{request.user}}"</p>
+                        </li>
+                        <li class="header-top-contact">
+                            <a href="{% url 'logout' %}">logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </header><!--/.header-top-->
+    <!--header-top end -->
+
+    <!-- top-area Start -->
+    <section class="top-area">
+        <div class="header-area">
+            <!-- Start Navigation -->
+            <nav class="navbar navbar-default bootsnav  navbar-sticky navbar-scrollspy"  data-minus-value-desktop="70" data-minus-value-mobile="55" data-speed="1000">
+
+                <div class="container">
+
+                    <!-- Start Header Navigation -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <a class="navbar-brand" href="index.html">Builders<span>Community</span></a>
+
+                    </div><!--/.navbar-header-->
+                    <!-- End Header Navigation -->
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
+                        <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+                            <li ><a href="{% url 'home'%}">home</a></li>
+                            <li class="scroll"><a href="#works">how it works</a></li>
+                            <li class="scroll"><a href="#reviews">review</a></li>
+                            <li class="scroll"><a href="#blog">blog</a></li>
+                            <li class="scroll"><a href="#contact">contact</a></li>
+                        </ul><!--/.nav -->
+                    </div><!-- /.navbar-collapse -->
+                </div><!--/.container-->
+            </nav><!--/nav-->
+            <!-- End Navigation -->
+        </div><!--/.header-area-->
+        <div class="clearfix"></div>
+        <section id="home" class="welcome-hero">
+			<div class="container">
+				<div class="welcome-hero-txt">
+					<h2>Connecting Builders and Seekers  Where Construction Meets Community<br> Build Trust, Find Excellence </h2>
+					<p>
+						Find Best Builders , Contractors and many more services in just One click 
+					</p>
+				</div>
+				
+		    </div>
+        </section><!--/.welcome-hero-->
+            <br>
+        
+          {% for contractor, range, nslides in allProds  %}
+        
+          <h1 class="my-3 text-center text-success bg-light" style="color:#ff545a;font-size: 300%; font-weight: bold;" >
+            {{contractor.0.category}} Contractors
+          </h1>
+      
+          <div class="container">
+            <div class="row">
+      
+              {% for i in contractor %}
+              <div class="col-md-3 mt-3">
+                <img src="/media/{{i.image}}" class="card-img-top" alt="not found" height="200px" width="200px" />
+                <div class="card-body">
+                  <h5 class="card-title mt-2" id="namepr{{i.id}}">{{i.contractor_name}}</h5>
+                  <p class="card-text">{{i.desc|slice:"0:53"}}...</p>
+                  <h6 class="card-title mb-3">
+                    phone no:<span id="pricepr{{i.id}}">{{i.phoneno}}</span>
+                  </h6>
+                  <span id="divpr{{i.id}}" class="divpr">
+                     <button id="pr{{i.id}}" class="btn btn-danger cart btn-sm mt-0">
+                      contact
+                    </button>
+                  </span>
+      
+                  <a href="/media/{{i.image}}">
+                    <button class="btn btn-dark btn-sm cart">view<i class="fa-solid fa-eye"></i></button></a
+                  >
+                </div>
+              </div>
+      
+              {% endfor %}
+            </div>
+          </div>
+          {% endfor %}
+    </header><!--/.header-top-->
+    <!--header-top end -->
+    <script src="{% static 'assets/js/jquery.js' %}"></script>
+        
+        <!--modernizr.min.js-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+		
+		<!--bootstrap.min.js-->
+        <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+		
+		<!-- bootsnav js -->
+		<script src="{% static 'assets/js/bootsnav.js' %}"></script>
+
+        <!--feather.min.js-->
+        <script  src="{% static 'assets/js/feather.min.js' %}"></script>
+
+        <!-- counter js -->
+		<script src="{% static 'assets/js/jquery.counterup.min.js' %}"></script>
+		<script src="{% static 'assets/js/waypoints.min.js' %}"></script>
+
+        <!--slick.min.js-->
+        <script src="{% static 'assets/js/slick.min.js' %}"></script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+		     
+        <!--Custom JS-->
+        <script src="{% static 'assets/js/custom.js' %}"></script>
+</body>
+</html>

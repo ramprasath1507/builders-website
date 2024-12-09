@@ -1,0 +1,146 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contractors</title>
+    
+        <!-- For favicon png -->
+		<link rel="shortcut icon" type="image/icon" href="{% static 'assets/logo/favicon.png' %}"/>
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+       
+        <!--font-awesome.min.css-->
+        <link rel="stylesheet" href="{% static 'assets/css/font-awesome.min.css' %}">
+
+        <!--linear icon css-->
+		<link rel="stylesheet" href="{% static 'assets/css/linearicons.css' %}">
+
+		<!--animate.css-->
+        <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
+
+		<!--flaticon.css-->
+        <link rel="stylesheet" href="{% static 'assets/css/flaticon.css' %}">
+
+		<!--slick.css-->
+        <link rel="stylesheet" href="{% static 'assets/css/slick.css' %}">
+		<link rel="stylesheet" href="{% static 'assets/css/slick-theme.css' %}">
+		
+        <!--bootstrap.min.css-->
+        <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+		
+		<!-- bootsnav -->
+		<link rel="stylesheet" href="{% static 'assets/css/bootsnav.css' %}" >	
+        
+        <!--style.css-->
+        <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" >
+        
+        <!--responsive.css-->
+        <link rel="stylesheet" href="{% static 'assets/css/responsive.css' %}">
+</head>
+<body>
+    <header id="header-top" class="header-top">
+        <ul>
+            <li>
+                <div class="header-top-left">
+                    <ul>
+                        <li class="select-opt">
+                            <select name="language" id="language">
+                                <option value="default">ENGLISH</option>
+                                <option value="TAMIL">TAMIL</option>
+                                <option value="HINDI">HINDI</option>
+                            </select>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="head-responsive-right pull-right">
+                <div class="header-top-right">
+                    <ul>
+                        <li class="header-top-contact">
+                            +1 222 777 6565
+                        </li>
+                        <li class="header-top-contact">
+                            <p>"welocme {{request.user}}"</p>
+                        </li>
+                        <li class="header-top-contact">
+                            <a href="{% url 'logout' %}">logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </header><!--/.header-top-->
+    <!--header-top end -->
+
+    <!-- top-area Start -->
+    <section class="top-area">
+        <div class="header-area">
+            <!-- Start Navigation -->
+            <nav class="navbar navbar-default bootsnav  navbar-sticky navbar-scrollspy"  data-minus-value-desktop="70" data-minus-value-mobile="55" data-speed="1000">
+
+                <div class="container">
+
+                    <!-- Start Header Navigation -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <a class="navbar-brand" href="index.html">Builders<span>Community</span></a>
+
+                    </div><!--/.navbar-header-->
+                    <!-- End Header Navigation -->
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
+                        <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+                            <li class=" scroll active"><a href="#home">home</a></li>
+                            <li class="scroll"><a href="#works">how it works</a></li>
+                            <li class="scroll"><a href="#reviews">review</a></li>
+                            <li class="scroll"><a href="#blog">blog</a></li>
+                            <li class="scroll"><a href="#contact">contact</a></li>
+                        </ul><!--/.nav -->
+                    </div><!-- /.navbar-collapse -->
+                </div><!--/.container-->
+            </nav><!--/nav-->
+            <!-- End Navigation -->
+        </div><!--/.header-area-->
+        <div class="clearfix"></div>
+        <section id="home" class="welcome-hero">
+			<div class="container">
+				<div class="welcome-hero-txt">
+					<h2>best place to find and explore <br> that all you need </h2>
+					<p>
+						Find Best Builders , Contractors and many more services in just One click 
+					</p>
+				</div>
+				<div class="welcome-hero-serch-box">
+					<div class="welcome-hero-form">
+						<div class="single-welcome-hero-form">
+							<h3>what?</h3>
+							<form action="index.html">
+								<input type="text" placeholder="Ex:painting,carpentry,plumbing" />
+							</form>
+							<div class="welcome-hero-form-icon">
+								<i class="flaticon-list-with-dots"></i>
+							</div>
+						</div>
+						<div class="single-welcome-hero-form">
+							<h3>location</h3>
+							<form action="index.html">
+								<input type="text" placeholder="Ex:chennai,madurai" />
+							</form>
+							<div class="welcome-hero-form-icon">
+								<i class="flaticon-gps-fixed-indicator"></i>
+							</div>
+						</div>
+					</div>
+					<div class="welcome-hero-serch">
+						<button class="welcome-hero-btn" onclick="window.location.href='#'">
+							 search  <i data-feather="search"></i> 
+						</button>
+					</div>
+				</div>
+		     </div>
+        </section>

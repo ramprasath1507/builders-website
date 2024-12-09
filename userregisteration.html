@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Registeration Form</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+<body>
+	<div class="form-box">
+		<div class="header-text">
+			Registeration Form
+	    </div>
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="input-group"> 
+                <img class="icon input-icon" src="" alt=""> 
+                {{form.username}} 
+            </div> 
+            <div class="input-group"> 
+                <img class="icon input-icon" src="" alt=""> 
+                {{form.email}} 
+            </div> 
+            <div class="input-group"> 
+                <img class="icon input-icon" src="" alt=""> 
+                {{form.password1}} 
+            </div> 
+            <div class="input-group"> 
+                <img class="icon input-icon" src="" alt=""> 
+                {{form.password2}} 
+            </div>
+            <p>{{form.errors}}</p>
+            <input type="submit" value="submit">
+            <p>Do you have account?<a href="{% url 'login' %}">Login Now</a></p>
+
+        </form>
+	</div>
+</body>
+</html>
